@@ -22,7 +22,7 @@
    COLOUR model-space charcoal, white paper, one layer colour per course: AutoCAD red, Revit blue, M&E amber; cyan for live input
    TYPE Be Vietnam Pro 800 + Be Vietnam Pro, JetBrains Mono for commands
    LAYOUT laptop: title row, full-width section drawing, three sheets in a row; phone: everything stacks, title then drawing then cards */
-:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e1217);--ink:light-dark(#121820,#e6ebf1);--mut:light-dark(#566170,#9ba7b5);--line:light-dark(#dde3ea,#28313c);--panel:light-dark(#f3f5f8,#151b22);--ms:#1a2028;--msink:#e6ebf1;--cad:light-dark(#d32f27,#ff6a5f);--rvt:light-dark(#2459c9,#6f9ef5);--me:light-dark(#a86a00,#f2b33a);--ok:light-dark(#11804a,#45d08a);--bad:light-dark(#c42c25,#ff7a70);--cy:#4fd1ff;--cy2:light-dark(#0a7799,#4fd1ff)}
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0e1217);--ink:light-dark(#121820,#e6ebf1);--mut:light-dark(#566170,#9ba7b5);--line:light-dark(#dde3ea,#28313c);--panel:light-dark(#f3f5f8,#151b22);--ms:#1a2028;--msink:#e6ebf1;--cad:light-dark(#d32f27,#ff6a5f);--rvt:light-dark(#2459c9,#6f9ef5);--me:light-dark(#a86a00,#f2b33a);--plc:light-dark(#6a3fd0,#b394ff);--ok:light-dark(#11804a,#45d08a);--bad:light-dark(#c42c25,#ff7a70);--cy:#4fd1ff;--cy2:light-dark(#0a7799,#4fd1ff)}
 :root[data-theme=light]{color-scheme:light}
 :root[data-theme=dark]{color-scheme:dark}
 *{box-sizing:border-box;min-width:0}
@@ -75,7 +75,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .cont{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;border:1.5px solid var(--ink);border-radius:6px;padding:14px 18px;margin-bottom:24px}
 .cont small{display:block;color:var(--mut);font-size:13px}
 .cont b{font-size:18px}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,262px),1fr));gap:20px}
 .sheet{border:1.5px solid var(--ink);border-radius:4px;display:flex;flex-direction:column;background:var(--bg)}
 .sheet .art{height:150px;background:var(--panel);border-bottom:1.5px solid var(--ink);color:var(--tc);display:grid;place-items:center}
 .sheet .art svg{width:100%;height:100%}
@@ -88,7 +88,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,su
 .tb .big{font-size:24px;font-weight:800}
 .tb .acts{display:flex;gap:10px;flex-wrap:wrap;border-bottom:0;margin-top:auto}
 .path{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:0 32px}
-.path li{display:grid;grid-template-columns:5.2em minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line)}
+.path li{display:grid;grid-template-columns:6.4em minmax(0,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line)}
 .path .wk{font-weight:800;font-size:18px;white-space:nowrap}
 .path b{display:block}
 .path span{color:var(--mut);font-size:15px}
@@ -201,6 +201,68 @@ summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:
 .fc.back small{color:#9fb0c2}
 .fc .ft{font-size:clamp(20px,2.6vw,26px);font-weight:800;line-height:1.25}
 .fc.back .ft{font-family:"JetBrains Mono",monospace;font-weight:600;color:var(--cy)}
+.les ol{padding-left:1.4em;margin:0 0 14px}
+.plc{display:grid;grid-template-columns:320px minmax(0,1fr);gap:24px;align-items:start}
+@media(max-width:960px){.plc{grid-template-columns:minmax(0,1fr)}}
+.pdesc{border:1px solid var(--line);border-radius:8px;padding:16px}
+.pdesc h3{margin-bottom:8px}
+.ladder{overflow-x:auto;border:1.5px solid var(--ink);border-radius:8px;padding:14px 12px;background:var(--bg)}
+.rung{display:flex;align-items:flex-start;min-width:max-content;padding:4px 0}
+.rn{width:24px;flex:none;font-weight:800;color:var(--tc);font-size:14px;padding-top:9px}
+.rl,.rr{width:3px;align-self:stretch;background:var(--ink);flex:none}
+.rs,.br{display:flex;align-items:flex-start;background:linear-gradient(var(--ink),var(--ink)) 0 19px/100% 2px no-repeat}
+.br{padding:0 10px}
+.wire{flex:1 0 24px;height:40px;background:linear-gradient(var(--ink),var(--ink)) 0 19px/100% 2px no-repeat}
+.par{display:flex;flex-direction:column;position:relative}
+.par::before,.par::after{content:"";position:absolute;top:19px;bottom:65px;width:2px;background:var(--ink)}
+.par::before{left:0}
+.par::after{right:0}
+.el{width:100px;height:84px;flex:none;display:flex;flex-direction:column;align-items:center;color:var(--ink);background:var(--bg)}
+.el svg{width:100px;height:40px;flex:none}
+.el.slot{width:136px;background:linear-gradient(var(--ink),var(--ink)) 0 19px/18px 2px no-repeat,linear-gradient(var(--ink),var(--ink)) 100% 19px/18px 2px no-repeat,var(--bg)}
+.el .lbl{font-size:13px;line-height:1.2;text-align:center;margin-top:4px;padding:0 2px}
+.el .lbl b{display:block;font-family:"JetBrains Mono",monospace}
+.el select{font:inherit;font-size:16px;width:128px;min-height:40px;margin-top:2px;padding:4px 6px;border:1.5px solid var(--plc);border-radius:6px;background:var(--bg);color:var(--ink)}
+.el.on{color:var(--ok)}
+.el.on .lbl{color:var(--ink)}
+.plcio{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px}
+@media(max-width:600px){.plcio{grid-template-columns:minmax(0,1fr)}}
+.plcio>div{border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.plcio h4{margin:0 0 10px;font-size:15px}
+.pbtn{font:inherit;font-size:14px;display:flex;flex-direction:column;align-items:center;gap:4px;min-width:96px;padding:10px 8px;border-radius:10px;border:1.5px solid var(--line);background:var(--panel);color:var(--ink);cursor:pointer;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.pbtn .cap{width:40px;height:40px;border-radius:50%;background:#7d8896;box-shadow:inset 0 -4px 0 rgba(0,0,0,.25);position:relative}
+.pbtn.green .cap{background:#1f9d55}
+.pbtn.red .cap{background:#d32f27}
+.pbtn.on .cap{box-shadow:inset 0 3px 0 rgba(0,0,0,.35);transform:scale(.93)}
+.pbtn.sw .cap{border-radius:8px;background:#4a5563;transform:none}
+.pbtn.sw .cap::after{content:"";position:absolute;left:6px;top:6px;width:12px;height:28px;border-radius:4px;background:#fff;transition:left .15s}
+.pbtn.sw.on .cap{background:#1f9d55}
+.pbtn.sw.on .cap::after{left:22px}
+.pbtn small,.lamp small{font:13px "JetBrains Mono",monospace;color:var(--mut)}
+.lamp{display:flex;flex-direction:column;align-items:center;gap:4px;min-width:88px;text-align:center;font-size:14px}
+.bulb{width:34px;height:34px;border-radius:50%;background:var(--line);border:2px solid var(--mut)}
+.lamp.on .bulb{background:#ffd23f;border-color:#e0a800;box-shadow:0 0 0 6px rgba(255,210,63,.28)}
+.meter{min-width:160px;font-size:14px}
+.meter .bar{margin-top:6px}
+.prj{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:40px;align-items:start;margin-top:8px}
+@media(max-width:900px){.prj{grid-template-columns:minmax(0,1fr)}}
+.prj h3{margin:26px 0 10px}
+.prj ul,.prj ol{padding-left:1.3em;margin:0 0 12px}
+.prj li{margin-bottom:6px}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.meta span{border:1px solid var(--line);border-radius:6px;padding:4px 10px;font-size:14px}
+.meta b{font-weight:600}
+.ckbox{position:sticky;top:72px;border:1.5px solid var(--ink);border-radius:8px;padding:16px}
+.ckbox h3{margin:0 0 8px}
+.ck{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--line);min-height:44px;cursor:pointer;font-size:15px}
+.ck input{width:22px;height:22px;flex:none;margin:1px 0 0;accent-color:var(--tc)}
+.ck.done span{color:var(--mut);text-decoration:line-through}
+.plist{display:grid;gap:0;margin-top:16px}
+.plist a{display:grid;grid-template-columns:2.4em minmax(0,1fr) 7em;gap:12px;align-items:center;padding:12px 0;border-top:1px solid var(--line);text-decoration:none}
+.plist .pn{font-weight:800;font-size:20px;color:var(--tc)}
+.plist small{display:block;color:var(--mut);font-size:13px}
+.plist .bar{height:6px}
+@media(max-width:600px){.plist a{grid-template-columns:1.8em minmax(0,1fr) 4.6em}}
 .foot{color:var(--mut);font-size:14px;border-top:1px solid var(--line);padding-bottom:max(24px,env(safe-area-inset-bottom,0px))}
 @media(max-width:600px){table{font-size:14px}.keys th,.keys td{padding:6px 4px}}
 </style>
@@ -208,7 +270,7 @@ summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:
 <body>
 <header class="top"><div class="wrap">
   <a class="brand" href="#home"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M11 1v20M1 11h20" stroke="#4fd1ff" stroke-width="1.6"/><rect x="7" y="7" width="8" height="8" fill="none" stroke="#fff" stroke-width="1.6"/></svg>Xưởng học CAD · BIM · M&amp;E</a>
-  <nav class="nav" aria-label="Chuyên mục"><a href="#home">Trang chủ</a><a href="#autocad">AutoCAD</a><a href="#revit">Revit</a><a href="#me">M&amp;E</a><a href="#on-tap">Ôn tập</a></nav>
+  <nav class="nav" aria-label="Chuyên mục"><a href="#home">Trang chủ</a><a href="#autocad">AutoCAD</a><a href="#revit">Revit</a><a href="#me">M&amp;E</a><a href="#plc">PLC</a><a href="#du-an">Dự án</a><a href="#on-tap">Ôn tập</a></nav>
 </div></header>
 <main id="app"></main>
 <footer class="band foot"><div class="wrap">Tiến độ được lưu trong trình duyệt của máy này. Công thức và giá trị tham khảo dùng để học; khi thiết kế thật hãy đối chiếu tiêu chuẩn hiện hành, catalog nhà sản xuất và yêu cầu của dự án.</div></footer>
@@ -285,6 +347,25 @@ me:{name:'M&E Design',c:'var(--me)',sub:'Nguyên lý thiết kế cơ điện: p
 ]},
 {t:'Nước và PCCC',ls:[
 {t:'Cấp thoát nước và PCCC',b:`<div class="f">d = √(4Q / (π · v))</div><p>Vận tốc ống cấp nước khoảng 1 đến 2 m/s; ống nhánh trong nhà nên thấp hơn để giảm ồn. Ống thoát nước tự chảy cần độ dốc theo đường kính (thường 1 đến 3%), tra TCVN 4474 hoặc tiêu chuẩn của dự án.</p><p>PCCC: sprinkler (TCVN 7336), báo cháy (TCVN 5738), họng nước vách tường; bố trí theo QCVN 06:2022/BXD và hồ sơ thẩm duyệt. Phối hợp với điện: bơm chữa cháy, quạt tăng áp, hút khói lấy nguồn trước CB tổng hoặc từ nguồn ưu tiên, dùng cáp chống cháy.</p>`}
+]}]},
+
+plc:{name:'PLC',c:'var(--plc)',sub:'Điều khiển logic khả trình: cấu trúc, đấu nối vào ra, lập trình Ladder, timer, counter, analog, truyền thông và chẩn đoán lỗi.',mods:[
+{t:'Nền tảng',ls:[
+{t:'PLC là gì và chu kỳ quét',b:`<p>PLC (Programmable Logic Controller) là máy tính công nghiệp thay cho mạch relay: đọc tín hiệu từ nút nhấn, cảm biến, rồi theo chương trình điều khiển contactor, van, đèn, biến tần.</p><ul><li><b>Phần cứng</b>: nguồn 24 VDC, CPU, module ngõ vào số (DI), ngõ ra số (DO), analog vào (AI), analog ra (AO), module truyền thông.</li><li><b>Chu kỳ quét</b>: đọc toàn bộ ngõ vào vào bộ nhớ ảnh, thực thi chương trình từ rung đầu đến rung cuối, rồi ghi ngõ ra. Một vòng thường từ vài ms đến vài chục ms.</li><li><b>Hãng phổ biến</b>: Siemens S7-1200/1500 (TIA Portal), Mitsubishi FX/iQ-R (GX Works), Omron (CX-Programmer, Sysmac Studio), Rockwell Allen-Bradley (Studio 5000), Delta, LS.</li></ul><p>Vì chương trình chạy tuần tự, rung phía sau thấy ngay kết quả của rung phía trước trong cùng một vòng quét.</p>`},
+{t:'Đấu nối ngõ vào và ngõ ra',b:`<ul><li><b>Ngõ vào 24 VDC</b>: kiểu sink hoặc source, phải khớp với cảm biến PNP hay NPN. Cảm biến 3 dây thường: nâu +24 V, xanh dương 0 V, đen là tín hiệu.</li><li><b>Ngõ ra relay</b>: đóng cắt được tải AC hoặc DC nhưng chậm và có tuổi thọ cơ khí. <b>Ngõ ra transistor</b>: nhanh, bền, chỉ dùng tải DC; cần cho phát xung điều khiển servo, động cơ bước.</li><li>Không cấp tải lớn trực tiếp từ ngõ ra PLC: đi qua relay trung gian hoặc contactor, có cầu chì bảo vệ.</li><li><b>Dừng khẩn cấp</b> phải đấu cứng, cắt trực tiếp nguồn cuộn hút contactor (hoặc qua relay an toàn); PLC chỉ nhận tín hiệu báo trạng thái.</li></ul>`,d:'Vẽ sơ đồ đấu nối: nút START, nút STOP thường đóng, một cảm biến PNP vào PLC; một ngõ ra relay qua contactor điều khiển động cơ.'},
+{t:'Địa chỉ và kiểu dữ liệu',b:`<p>Mỗi tín hiệu có một địa chỉ; cách đặt khác nhau theo hãng (Siemens / Mitsubishi):</p>`,k:[['I0.0 / X0','Ngõ vào số'],['Q0.0 / Y0','Ngõ ra số'],['M0.0 / M0','Bit nhớ nội'],['MW10 / D10','Word nhớ 16 bit'],['T0, C0','Timer, counter'],['DB1.DBX0.0','Bit trong khối dữ liệu (Siemens)'],['BOOL','1 bit: 0 hoặc 1'],['INT / DINT','Số nguyên 16 / 32 bit'],['REAL','Số thực 32 bit'],['TIME','Thời gian, ví dụ T#5s']]}
+]},
+{t:'Lập trình Ladder',ls:[
+{t:'Tiếp điểm, cuộn dây và tự giữ',b:`<ul><li><b>NO</b> —| |—: thông khi bit bằng 1. <b>NC</b> —|/|—: thông khi bit bằng 0. <b>Coil</b> —( )—: ghi kết quả của rung vào bit.</li><li><b>Set/Reset</b> —(S)— —(R)—: chốt bit, giữ nguyên tới khi có lệnh ngược lại.</li><li><b>Mạch tự giữ</b>: tiếp điểm NO của chính ngõ ra mắc song song với START, rồi nối tiếp với STOP.</li></ul><p>Tiếp điểm trong chương trình phản ánh <b>trạng thái tín hiệu</b>, không phải loại nút. Thực tế nút STOP nên dùng loại thường đóng (đứt dây thì máy dừng), khi đó trong chương trình STOP dùng tiếp điểm NO. Trong bàn mô phỏng, mọi nút đều là nút thường hở nên STOP dùng tiếp điểm NC.</p>`,d:'Làm bài 1 và 2 trên bàn mô phỏng Ladder ở tab Thực hành.'},
+{t:'Liên động, ưu tiên và sườn xung',b:`<ul><li><b>Liên động</b> thuận nghịch: nối tiếp tiếp điểm NC của contactor nghịch vào rung thuận và ngược lại. Ngoài khóa trong chương trình, luôn khóa cứng bằng tiếp điểm phụ của contactor.</li><li><b>Dừng ưu tiên</b>: đặt STOP nối tiếp sau cụm song song START và tự giữ; nhấn cả hai thì máy dừng.</li><li><b>Sườn lên P, sườn xuống N</b>: tạo xung một vòng quét khi tín hiệu đổi trạng thái, dùng để đếm hoặc đảo trạng thái bằng một nút.</li></ul>`,d:'Làm bài 3 (đảo chiều có liên động) trên bàn mô phỏng.'},
+{t:'Timer',b:`<ul><li><b>TON</b> (trễ đóng): ngõ vào giữ 1 đủ thời gian PT thì Q lên 1; ngõ vào về 0 thì reset ngay.</li><li><b>TOF</b> (trễ ngắt): ngõ vào về 0, Q còn giữ 1 thêm PT rồi mới tắt; ví dụ quạt chạy thêm sau khi tắt máy.</li><li><b>TP</b> (xung): tạo xung có độ rộng PT.</li><li><b>TONR</b> (tích lũy): cộng dồn thời gian qua nhiều lần, chỉ xóa bằng lệnh reset.</li></ul><p>Ứng dụng kinh điển là <b>khởi động sao tam giác</b>: K1 nguồn và K2 sao đóng; hết thời gian chỉnh định (thường vài giây đến khoảng 10 s tùy tải) thì mở K2, đóng K3 tam giác; K2 và K3 phải khóa chéo.</p>`,d:'Làm bài 4 và 5 trên bàn mô phỏng.'},
+{t:'Counter',b:`<ul><li><b>CTU</b>: đếm lên mỗi khi ngõ vào có sườn lên; Q = 1 khi CV ≥ PV.</li><li><b>CTD</b>: đếm xuống; <b>CTUD</b>: đếm lên và xuống.</li><li>Ngõ vào R (hoặc lệnh RST) đưa CV về 0.</li></ul><p>Ví dụ: đếm 5 sản phẩm qua cảm biến thì bật đèn báo đủ thùng, nhấn RESET để đếm thùng mới.</p>`,d:'Làm bài 6 trên bàn mô phỏng.'},
+{t:'So sánh, tính toán và analog',b:`<p>Lệnh so sánh (==, &lt;&gt;, &gt;, &lt;), MOVE, ADD, SUB, MUL, DIV xử lý số. Tín hiệu analog 4–20 mA hoặc 0–10 V được module đổi thành số nguyên; với Siemens S7-1200/1500 dải danh định là 0 đến 27648.</p><div class="f">giá trị = raw / 27648 × (max − min) + min</div><p>Ví dụ cảm biến áp suất 0–10 bar, raw = 13824 thì áp suất ≈ 5 bar. Trong TIA Portal dùng cặp lệnh NORM_X rồi SCALE_X.</p>`}
+]},
+{t:'Ứng dụng và bảo trì',ls:[
+{t:'Ngôn ngữ IEC 61131-3 và cấu trúc chương trình',b:`<ul><li><b>LD</b> (Ladder), <b>FBD</b> (khối chức năng), <b>ST</b> (văn bản giống Pascal), <b>SFC</b> (tuần tự theo bước). IL đã bị bỏ ở phiên bản 3 của tiêu chuẩn.</li><li>Siemens: OB1 là vòng chính; FC là hàm; FB là khối có nhớ đi kèm instance DB. Nên tách mỗi thiết bị (bơm, quạt, van) thành một FB để dùng lại.</li></ul><p>Cùng logic tự giữ viết bằng ST:</p><div class="f">Motor := (Start OR Motor) AND NOT Stop;</div>`},
+{t:'Truyền thông, HMI và SCADA',b:`<ul><li><b>Modbus RTU</b> (RS-485) và <b>Modbus TCP</b>: phổ biến cho đồng hồ điện, biến tần, thiết bị nhiều hãng.</li><li><b>Profinet</b>, <b>EtherNet/IP</b>, Profibus: mạng trường của Siemens và Rockwell.</li><li><b>HMI</b> đọc ghi tag của PLC để hiển thị, nhập thông số, báo lỗi. <b>SCADA</b> giám sát nhiều PLC, lưu dữ liệu và xu hướng; OPC UA là chuẩn kết nối giữa các hệ thống.</li></ul><p>Trong hệ thống điện nhà máy, PLC thường đọc trạng thái MCCB, ACB và đồng hồ đa năng qua Modbus để giám sát, điều khiển máy phát, ATS, tủ bù.</p>`},
+{t:'Chẩn đoán và sửa lỗi',b:`<ol><li>Xem LED trạng thái CPU và module (RUN, ERROR, LED từng kênh).</li><li>Kiểm tra theo chuỗi: thiết bị đầu vào, LED ngõ vào, logic chương trình (online monitor), LED ngõ ra, relay hoặc contactor, tải.</li><li>Đọc bộ đệm chẩn đoán (Diagnostic buffer) để biết lỗi phần cứng, lỗi chương trình.</li><li>Chỉ dùng <b>Force</b> khi đã đánh giá an toàn và nhớ bỏ force sau khi xong.</li><li>Luôn sao lưu chương trình trước khi sửa; cắt điện, khóa và treo thẻ (LOTO) khi thao tác trong tủ.</li></ol>`,d:'Mở một chương trình mẫu, bật online monitor, theo dõi một rung tự giữ khi nhấn START và STOP thật.'}
 ]}]}
 };
 const LES={};
@@ -324,7 +405,20 @@ me:[
 ['Dây pha 70 mm², dây PE cùng vật liệu tối thiểu bao nhiêu?',['35 mm²','70 mm²','16 mm²','10 mm²'],'S > 35 mm² thì PE = S/2.'],
 ['Nâng cosφ từ 0,8 lên 0,95 cho tải 100 kW cần tụ bù khoảng?',['≈ 42 kVAr','≈ 15 kVAr','≈ 75 kVAr','≈ 100 kVAr'],'Qc = 100 × (0,75 − 0,329) ≈ 42 kVAr.'],
 ['Bơm chữa cháy cần lấy nguồn thế nào?',['Trước CB tổng hoặc từ nguồn ưu tiên, dùng cáp chống cháy','Chung mạch với ổ cắm','Sau CB tổng như tải thường','Chỉ cần một UPS nhỏ'],'Nguồn cho phụ tải PCCC không được bị cắt khi cắt điện sự cố.']
+],
+plc:[
+['Thứ tự một chu kỳ quét PLC?',['Đọc ngõ vào, thực thi chương trình, cập nhật ngõ ra','Cập nhật ngõ ra, đọc ngõ vào, thực thi chương trình','Thực thi chương trình, đọc ngõ vào, cập nhật ngõ ra','Chỉ thực thi khi có ngõ vào thay đổi'],'PLC đọc ảnh ngõ vào, chạy chương trình từ trên xuống, rồi ghi ngõ ra.'],
+['Mạch tự giữ dùng tiếp điểm nào mắc song song với nút START?',['NO của chính ngõ ra Q0.0','NC của Q0.0','NC của STOP','NO của STOP'],'Khi Q0.0 lên 1, tiếp điểm NO của nó giữ cho rung tiếp tục thông.'],
+['Timer nào giữ ngõ ra thêm một thời gian sau khi ngõ vào mất?',['TOF','TON','TP','CTU'],'TOF là timer trễ ngắt.'],
+['Ngõ ra transistor khác ngõ ra relay ở điểm nào?',['Đóng cắt nhanh nhưng chỉ dùng tải DC','Dùng được cho tải AC công suất lớn','Chậm hơn relay','Không cần nguồn cấp'],'Transistor phù hợp phát xung tốc độ cao; relay đóng được AC nhưng chậm.'],
+['Cảm biến PNP 3 dây, dây đen thường là gì?',['Tín hiệu ra','+24 V','0 V','Dây tiếp địa'],'Quy ước thường gặp: nâu +24 V, xanh dương 0 V, đen tín hiệu.'],
+['Mạch dừng khẩn cấp nên thiết kế thế nào?',['Đấu cứng cắt nguồn cuộn hút contactor, PLC chỉ nhận tín hiệu báo','Chỉ lập trình trong PLC','Dùng nút thường hở','Dùng timer trễ trước khi dừng'],'Dừng khẩn không được phụ thuộc vào chương trình hay CPU đang chạy.'],
+['Liên động thuận nghịch: rung điều khiển Q0.0 (thuận) cần nối tiếp thêm gì?',['NC của Q0.1 (nghịch)','NO của Q0.1','NO của Q0.0','NC của Q0.0'],'NC của contactor kia ngăn hai contactor cùng đóng.'],
+['S7-1200 đọc analog 0–10 V cho giá trị thô danh định tối đa bao nhiêu?',['27648','32767','4095','65535'],'Dải danh định là 0 đến 27648; phần trên 27648 là vùng vượt dải.'],
+['Ngôn ngữ dạng văn bản giống Pascal trong IEC 61131-3?',['ST (Structured Text)','LD','FBD','SFC'],'ST hợp với tính toán, vòng lặp, xử lý dữ liệu.'],
+['Bộ đếm CTU tăng giá trị khi nào?',['Khi ngõ vào đếm có sườn lên','Mỗi vòng quét khi ngõ vào bằng 1','Khi có lệnh reset','Khi ngõ vào bằng 0'],'CTU chỉ đếm khi tín hiệu chuyển từ 0 lên 1.']
 ]};
+const PLCF=[['Chu kỳ quét PLC','Đọc ngõ vào → thực thi chương trình → cập nhật ngõ ra'],['TON','Trễ đóng: Q lên 1 khi ngõ vào giữ 1 đủ thời gian PT'],['TOF','Trễ ngắt: Q giữ 1 thêm PT sau khi ngõ vào về 0'],['TP','Tạo xung có độ rộng bằng PT'],['CTU','Đếm lên mỗi sườn lên; Q = 1 khi CV ≥ PV'],['Mạch tự giữ','(START ‖ Q) nối tiếp STOP → Q'],['Liên động thuận nghịch','Nối tiếp NC của contactor kia vào mỗi rung'],['Cảm biến PNP 3 dây','Nâu +24 V · Xanh dương 0 V · Đen tín hiệu'],['S7-1200 analog','Giá trị thô danh định 0 … 27648'],['IEC 61131-3','LD · FBD · ST · SFC (IL đã bỏ ở bản 3)'],['Ngõ ra relay và transistor','Relay: AC/DC, chậm · Transistor: chỉ DC, nhanh'],['Dừng khẩn cấp','Đấu cứng cắt cuộn hút contactor, không chỉ qua PLC']];
 
 const CADK=[['LINE – đoạn thẳng','L'],['CIRCLE – đường tròn','C'],['POLYLINE – đa tuyến','PL'],['RECTANG – hình chữ nhật','REC'],['ARC – cung tròn','A'],['HATCH – tô vật liệu','H'],['MOVE – di chuyển','M'],['COPY – sao chép','CO|CP'],['ROTATE – xoay','RO'],['MIRROR – đối xứng','MI'],['OFFSET – song song','O'],['TRIM – cắt','TR'],['EXTEND – kéo dài','EX'],['FILLET – bo góc','F'],['SCALE – thu phóng','SC'],['ARRAY – sao chép dãy','AR'],['STRETCH – kéo giãn','S'],['EXPLODE – phá khối','X'],['JOIN – nối','J'],['ERASE – xóa','E'],['LAYER – quản lý layer','LA'],['BLOCK – tạo block','B'],['INSERT – chèn block','I'],['MTEXT – chữ nhiều dòng','MT'],['DIMLINEAR – kích thước ngang dọc','DLI'],['DIMALIGNED – kích thước xiên','DAL'],['MATCHPROP – sao thuộc tính','MA'],['XREF – tham chiếu ngoài','XR'],['MVIEW – tạo viewport','MV'],['DIST – đo khoảng cách','DI'],['POLYGON – đa giác đều','POL'],['ZOOM','Z']];
 const RVTK=[['Wall – tường','WA'],['Door – cửa đi','DR'],['Window – cửa sổ','WN'],['Level – cao độ','LL'],['Grid – lưới trục','GR'],['Reference Plane','RP'],['Aligned Dimension','DI'],['Place Component','CM'],['Room','RM'],['Align – căn thẳng','AL'],['Move','MV'],['Copy','CO|CC'],['Rotate','RO'],['Mirror – chọn trục','MM'],['Trim/Extend to Corner','TR'],['Split Element','SL'],['Offset','OF'],['Pin','PN'],['Properties','PP'],['Visibility/Graphics','VG|VV'],['Thin Lines','TL'],['Ẩn tạm thời','HH'],['Cô lập tạm thời','HI'],['Bỏ ẩn/cô lập tạm thời','HR'],['Ẩn đối tượng trong view','EH'],['Tag by Category','TG'],['Duct – ống gió','DT'],['Pipe – ống nước','PI'],['Cable Tray – máng cáp','CT'],['Conduit – ống luồn','CN'],['Electrical Equipment – tủ điện','EE'],['Lighting Fixture – đèn','LF'],['Arc Wire – dây điện','EW'],['Air Terminal – miệng gió','AT'],['Mechanical Equipment','ME']];
@@ -373,13 +467,14 @@ const EX=[
 let cleanup=[];
 const keysTable=k=>`<div class="scroll"><table class="keys"><thead><tr><th>Lệnh / phím</th><th>Ý nghĩa</th></tr></thead><tbody>${k.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('')}</tbody></table></div>`;
 const prog=k=>{const n=LES[k].length,d=LES[k].filter(l=>st.done[l.id]).length;return{n,d,p:Math.round(d/n*100)}};
-const pracCount=k=>k==='autocad'?CEX.filter((x,i)=>st.ex['cad'+i]).length:k==='revit'?ORD.filter((x,i)=>st.ex['ord'+i]).length:EX.filter(x=>st.ex['me-'+x.id]).length;
-const pracTotal=k=>k==='autocad'?CEX.length:k==='revit'?ORD.length:EX.length;
+const pracCount=k=>k==='autocad'?CEX.filter((x,i)=>st.ex['cad'+i]).length:k==='revit'?ORD.filter((x,i)=>st.ex['ord'+i]).length:k==='plc'?PEX.filter((x,i)=>st.ex['plc'+i]).length:EX.filter(x=>st.ex['me-'+x.id]).length;
+const pracTotal=k=>k==='autocad'?CEX.length:k==='revit'?ORD.length:k==='plc'?PEX.length:EX.length;
 
 const ART={
 autocad:`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="72" y="34" width="132" height="70"/><circle cx="138" cy="69" r="22"/><path d="M60 69h170" stroke-width="1" stroke-dasharray="12 4 3 4"/><path d="M72 122h132M72 114v16M204 114v16" stroke-width="1"/><path d="M68 126l8-8M200 126l8-8" stroke-width="1.5"/></g><g stroke="var(--cy2)" stroke-width="1.4" fill="none"><path d="M246 20v56M218 48h56"/><rect x="240" y="42" width="12" height="12"/></g></svg>`,
 revit:`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><path d="M150 22l80 38-80 38-80-38z" style="fill:var(--rvt);opacity:.35"/><path d="M70 60l80 38v40l-80-38z" style="fill:var(--rvt);opacity:.75"/><path d="M230 60l-80 38v40l80-38z" style="fill:var(--rvt)"/><g stroke="var(--bg)" stroke-width="2"><path d="M88 80l0 22M108 89v22M128 99v22"/><path d="M168 99v22M188 89v22M208 80v22"/></g><g stroke="currentColor" stroke-width="1" stroke-dasharray="6 4" fill="none"><path d="M30 98h40M30 60h40"/></g><g fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="22" cy="98" r="6"/><circle cx="22" cy="60" r="6"/></g></svg>`,
-me:`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="40" y="36" width="110" height="56"/><path d="M40 36l110 56M150 36L40 92" stroke-width="1"/><rect x="34" y="30" width="122" height="68" stroke-width="1" stroke-dasharray="5 4"/><path d="M178 52v30h80V52"/></g><g fill="none" stroke="var(--ink)" stroke-width="1.6"><circle cx="190" cy="74" r="6"/><circle cx="204" cy="74" r="6"/><circle cx="218" cy="74" r="6"/><circle cx="232" cy="74" r="6"/><circle cx="246" cy="74" r="6"/><circle cx="200" cy="120" r="14"/><circle cx="240" cy="122" r="10"/></g><path d="M20 140h260" stroke="currentColor" stroke-width="1"/></svg>`
+me:`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="40" y="36" width="110" height="56"/><path d="M40 36l110 56M150 36L40 92" stroke-width="1"/><rect x="34" y="30" width="122" height="68" stroke-width="1" stroke-dasharray="5 4"/><path d="M178 52v30h80V52"/></g><g fill="none" stroke="var(--ink)" stroke-width="1.6"><circle cx="190" cy="74" r="6"/><circle cx="204" cy="74" r="6"/><circle cx="218" cy="74" r="6"/><circle cx="232" cy="74" r="6"/><circle cx="246" cy="74" r="6"/><circle cx="200" cy="120" r="14"/><circle cx="240" cy="122" r="10"/></g><path d="M20 140h260" stroke="currentColor" stroke-width="1"/></svg>`,
+plc:`<svg viewBox="0 0 300 150" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2"><path d="M34 22V128M266 22V128" stroke-width="3"/><path d="M34 50H78M98 50H140M160 50H198M238 50H266M78 36V64M98 36V64M140 36V64M160 36V64M136 64L164 36M206 36Q198 50 206 64M230 36Q238 50 230 64"/><path d="M34 100H78M98 100H150M78 86V114M98 86V114M210 100H266"/><rect x="150" y="84" width="60" height="32" rx="3"/><path d="M56 50V100" stroke-width="1.5"/></g><text x="180" y="105" text-anchor="middle" font-size="14" font-weight="700" fill="currentColor" font-family="sans-serif">TON</text><circle cx="250" cy="22" r="6" fill="var(--ok)"/></svg>`
 };
 
 /* ---------- Mặt cắt trần kỹ thuật (trang chủ) ---------- */
@@ -425,17 +520,17 @@ function drawSec(svg){
 function home(m){
   let N=0,D=0;for(const k in LES){const p=prog(k);N+=p.n;D+=p.d}
   const tot=Math.round(D/N*100);
-  let nx=null;for(const k of ['autocad','revit','me']){const i=LES[k].findIndex(l=>!st.done[l.id]);if(i>=0){nx={k,i,l:LES[k][i]};break}}
-  const PATH=[['Tuần 1','AutoCAD nền tảng','Giao diện, tọa độ, bắt điểm; hoàn thành 3 bài vẽ đầu trong phòng vẽ.'],['Tuần 2','AutoCAD vẽ và hiệu chỉnh','Lệnh vẽ, OFFSET, TRIM, FILLET; luyện phím tắt đạt chuỗi 15 câu.'],['Tuần 3','Quản lý bản vẽ và in','Layer theo bộ môn, block thiết bị điện, xref nền kiến trúc, layout PDF.'],['Tuần 4','Revit cơ bản','Category, Family, Type; view; Level, Grid; tường, cửa, sàn.'],['Tuần 5','Revit MEP: điện','Link kiến trúc, tủ điện, đèn, mạch, máng cáp, Panel Schedule.'],['Tuần 6','Revit MEP: HVAC, nước, phối hợp','Space, tải lạnh, ống gió, ống nước, Interference Check.'],['Tuần 7','M&E tính toán','Dòng điện, CB và cáp, sụt áp, bù, chiếu sáng; giải đủ 8 dạng bài.'],['Tuần 8','Dự án nhỏ','Một phòng điều khiển: tính toán, bản vẽ AutoCAD, mô hình Revit, kiểm tra va chạm.']];
+  let nx=null;for(const k of ['autocad','revit','me','plc']){const i=LES[k].findIndex(l=>!st.done[l.id]);if(i>=0){nx={k,i,l:LES[k][i]};break}}
+  const PATH=[['Tuần 1','AutoCAD nền tảng','Giao diện, tọa độ, bắt điểm; hoàn thành 3 bài vẽ đầu trong phòng vẽ.'],['Tuần 2','AutoCAD vẽ và hiệu chỉnh','Lệnh vẽ, OFFSET, TRIM, FILLET; luyện phím tắt đạt chuỗi 15 câu.'],['Tuần 3','Quản lý bản vẽ và in','Layer theo bộ môn, block thiết bị điện, xref nền kiến trúc, layout PDF.'],['Tuần 4','Revit cơ bản','Category, Family, Type; view; Level, Grid; tường, cửa, sàn.'],['Tuần 5','Revit MEP: điện','Link kiến trúc, tủ điện, đèn, mạch, máng cáp, Panel Schedule.'],['Tuần 6','Revit MEP: HVAC, nước, phối hợp','Space, tải lạnh, ống gió, ống nước, Interference Check.'],['Tuần 7','M&E tính toán','Dòng điện, CB và cáp, sụt áp, bù, chiếu sáng; giải đủ 8 dạng bài.'],['Tuần 8','Dự án nhỏ','Một phòng điều khiển: tính toán, bản vẽ AutoCAD, mô hình Revit, kiểm tra va chạm.'],['Tuần 9','PLC nền tảng và Ladder','Cấu trúc, đấu nối, địa chỉ; tự giữ, liên động; làm bài mô phỏng 1 đến 3.'],['Tuần 10','PLC timer, counter, ứng dụng','Timer, counter, analog, truyền thông; sao tam giác và đếm sản phẩm trên bàn mô phỏng.'],['Tuần 11–20','Dự án thực hành','Làm lần lượt 5 dự án trên phần mềm thật, gom thành hồ sơ năng lực.']];
   m.innerHTML=`<section class="hero band"><div class="wrap">
-  <div class="head"><div><h1>Xưởng học CAD · BIM · M&amp;E</h1><p>Lý thuyết ngắn gọn, thực hành ngay: phòng vẽ AutoCAD có dòng lệnh thật, sắp xếp quy trình Revit MEP, bài tập tính toán điện, HVAC, nước có lời giải.</p></div>
+  <div class="head"><div><h1>Xưởng học CAD · BIM · M&amp;E</h1><p>Lý thuyết ngắn gọn, thực hành ngay: phòng vẽ AutoCAD có dòng lệnh thật, sắp xếp quy trình Revit MEP, bài tập tính toán điện, HVAC, nước có lời giải, và bàn mô phỏng PLC Ladder chạy thật.</p></div>
   <div class="tot"><b>${tot}%</b><span>tiến độ chung, ${D}/${N} bài đã học</span></div></div>
   <div class="sec"><svg id="secsvg" role="img" aria-label="Mặt cắt trần kỹ thuật với ống gió, máng cáp, ống nước, dầm và đèn"></svg></div>
   <p class="cap">Mặt cắt trần kỹ thuật, nơi ba môn gặp nhau: vẽ trong AutoCAD, dựng mô hình trong Revit, tính toán theo nguyên lý M&amp;E.</p>
   </div></section>
   <section class="band"><div class="wrap">
   ${nx?`<div class="cont"><div><small>Bài tiếp theo · ${TR[nx.k].name} · ${nx.l.mt}</small><b>${nx.l.t}</b></div><a class="btn pri" href="#${nx.k}" data-go="${nx.k}" data-tab="learn" data-i="${nx.i}">Học tiếp</a></div>`:`<div class="cont"><div><small>Hoàn thành</small><b>Bạn đã học hết ${N} bài. Ôn lại bằng thẻ ghi nhớ và bài kiểm tra tổng hợp.</b></div><a class="btn pri" href="#on-tap">Ôn tập</a></div>`}
-  <div class="cards">${['autocad','revit','me'].map(k=>{const T=TR[k],p=prog(k);return `<article class="sheet" style="--tc:${T.c}"><div class="art">${ART[k]}</div><div class="tb">
+  <div class="cards">${['autocad','revit','me','plc'].map(k=>{const T=TR[k],p=prog(k);return `<article class="sheet" style="--tc:${T.c}"><div class="art">${ART[k]}</div><div class="tb">
    <div class="c nm"><span class="lb">Môn học</span><b>${T.name}</b></div><div class="c"><span class="lb">Tiến độ</span><span class="big">${p.p}%</span></div>
    <div class="c w"><span class="lb">Nội dung</span>${T.sub}</div>
    <div class="c"><span class="lb">Bài học</span>${p.d}/${p.n}</div><div class="c"><span class="lb">Thực hành đạt</span>${pracCount(k)}/${pracTotal(k)}</div>
@@ -443,8 +538,11 @@ function home(m){
    <div class="c w acts"><a class="btn pri" href="#${k}" data-go="${k}" data-tab="learn">Học bài</a><a class="btn" href="#${k}" data-go="${k}" data-tab="practice">Thực hành</a><a class="btn" href="#${k}" data-go="${k}" data-tab="quiz">Kiểm tra</a></div>
   </div></article>`}).join('')}</div>
   </div></section>
-  <section class="band alt"><div class="wrap"><h2>Lộ trình 8 tuần gợi ý</h2><ol class="path">${PATH.map(r=>`<li><span class="wk">${r[0]}</span><div><b>${r[1]}</b><span>${r[2]}</span></div></li>`).join('')}</ol></div></section>`;
+  <section class="band" style="padding-top:0"><div class="wrap"><div class="th"><div><h2>Dự án thực hành</h2><p class="mut" style="margin-top:8px">Sau khi học xong, làm 5 dự án trên phần mềm thật để có hồ sơ năng lực đi xin việc.</p></div><a class="btn" href="#du-an">Xem tất cả dự án</a></div>
+  <div class="plist">${PRJ.map((p,i)=>`<a href="#du-an" data-pj="${i}" style="--tc:${p.c}"><span class="pn">${i+1}</span><span><b>${p.t}</b><small>${p.sw} · ${p.time}</small></span><span><small>${pjp(p)}%</small><span class="bar" style="display:block"><i style="width:${pjp(p)}%"></i></span></span></a>`).join('')}</div></div></section>
+  <section class="band alt"><div class="wrap"><h2>Lộ trình gợi ý</h2><ol class="path">${PATH.map(r=>`<li><span class="wk">${r[0]}</span><div><b>${r[1]}</b><span>${r[2]}</span></div></li>`).join('')}</ol></div></section>`;
   $$('[data-go]',m).forEach(a=>a.addEventListener('click',()=>{st.tab[a.dataset.go]=a.dataset.tab;if(a.dataset.i)st.les[a.dataset.go]=+a.dataset.i;save()}));
+  $$('[data-pj]',m).forEach(a=>a.addEventListener('click',()=>{st.projSel=+a.dataset.pj;save()}));
   const svg=$('#secsvg',m);const ro=new ResizeObserver(()=>drawSec(svg));ro.observe(svg);cleanup.push(()=>ro.disconnect());
 }
 
@@ -463,6 +561,7 @@ function track(m,k){
     else if(tab==='quiz'){body.innerHTML=`<p class="mut">${QZ[k].length} câu, xáo trộn mỗi lần làm. Điểm cao nhất: ${st.quiz[k]!=null?st.quiz[k]+'%':'chưa làm'}.</p><div id="qbox"></div>`;quiz($('#qbox',body),QZ[k],k)}
     else{if(k==='autocad'){body.innerHTML=`<div id="cadlab"></div><div id="kt"></div>`;cadLab($('#cadlab',body));keyTrainer($('#kt',body),CADK,'autocad','Luyện phím tắt AutoCAD')}
       else if(k==='revit'){body.innerHTML=`<h2>Sắp xếp đúng trình tự làm việc</h2><p class="mut">Dùng nút mũi tên đưa các bước về đúng thứ tự rồi bấm Kiểm tra. Bước đúng vị trí sẽ được tô xanh.</p><div id="ord"></div><div id="kt"></div>`;orderLab($('#ord',body));keyTrainer($('#kt',body),RVTK,'revit','Luyện phím tắt Revit')}
+      else if(k==='plc'){body.innerHTML=`<h2>Bàn mô phỏng Ladder</h2><p class="mut" style="margin:8px 0 4px">PLC ảo quét chương trình mỗi 50 ms như PLC thật. Tiếp điểm đang thông và cuộn dây đang có điện hiện màu xanh.</p><div id="plclab"></div>`;plcLab($('#plclab',body))}
       else{body.innerHTML=`<h2>Bài tập tính toán</h2><p class="mut">Mỗi đề có số liệu ngẫu nhiên và có thể sửa tay, nên cũng dùng được như máy tính nhanh. Nhập đáp số rồi bấm Kiểm tra (sai số cho phép 2–3%), hoặc xem lời giải từng bước.</p><div id="mel"></div>`;meLab($('#mel',body))}}
   };
   $$('.seg button',m).forEach(b=>b.addEventListener('click',()=>{tab=b.dataset.t;st.tab[k]=tab;save();show()}));
@@ -561,6 +660,106 @@ function meLab(el){
     if(good){if(!st.ex['me-'+x.id]){st.ex['me-'+x.id]=1;save();$('.tick',bx).textContent='Đã giải đúng'}out.innerHTML=`<b class="ok-t">Đúng.</b> Kết quả chính xác: ${fmt(r,3)} ${x.u}.`}
     else out.innerHTML=`<b class="bad-t">Chưa đúng.</b> ${a<r?'Đáp số của bạn nhỏ hơn':'Đáp số của bạn lớn hơn'} kết quả. Thử lại hoặc bấm Lời giải.`;
   });
+}
+
+/* ---------- Bàn mô phỏng PLC Ladder ---------- */
+const pulses=n=>Array.from({length:n}).flatMap(()=>[{set:{'I0.0':1}},{set:{'I0.0':0}}]);
+const PEX=[
+{t:'Bật đèn bằng công tắc',d:'Công tắc S1 (I0.0) bật thì đèn H1 (Q0.0) sáng, tắt công tắc thì đèn tắt.',
+ io:[['I0.0','S1','sw'],['Q0.0','Đèn H1','out']],opts:['I0.0'],
+ rungs:[{s:[{slot:0}],o:{coil:'Q0.0'}}],ans:['I0.0'],
+ test:[{set:{'I0.0':1},e:{'Q0.0':1},m:'Bật S1'},{set:{'I0.0':0},e:{'Q0.0':0},m:'Tắt S1'}]},
+{t:'Khởi động, dừng có tự giữ',d:'Nhấn START (I0.0) thì động cơ (Q0.0) chạy và vẫn chạy khi nhả nút; nhấn STOP (I0.1) thì dừng. STOP phải được ưu tiên khi nhấn cùng lúc.',
+ io:[['I0.0','START','btn'],['I0.1','STOP','btn'],['Q0.0','KM động cơ','out']],opts:['I0.0','I0.1','Q0.0'],
+ rungs:[{s:[{par:[[{slot:0}],[{slot:1}]]},{slot:2}],o:{coil:'Q0.0'}}],ans:['I0.0','Q0.0','/I0.1'],
+ test:[{set:{'I0.0':1},e:{'Q0.0':1},m:'Nhấn START'},{set:{'I0.0':0},e:{'Q0.0':1},m:'Nhả START, động cơ phải tự giữ'},{set:{'I0.1':1},e:{'Q0.0':0},m:'Nhấn STOP'},{set:{'I0.1':0},e:{'Q0.0':0},m:'Nhả STOP, động cơ vẫn dừng'},{set:{'I0.0':1,'I0.1':1},e:{'Q0.0':0},m:'Nhấn START và STOP cùng lúc, STOP phải ưu tiên'}]},
+{t:'Đảo chiều có liên động',d:'FWD (I0.0) chạy thuận Q0.0, REV (I0.1) chạy nghịch Q0.1, STOP (I0.2) dừng. Đang chạy chiều này thì không được đóng chiều kia. Hãy chọn tiếp điểm khóa liên động.',
+ io:[['I0.0','FWD thuận','btn'],['I0.1','REV nghịch','btn'],['I0.2','STOP','btn'],['Q0.0','KM thuận','out'],['Q0.1','KM nghịch','out']],opts:['Q0.0','Q0.1'],
+ rungs:[{s:[{par:[[{c:'I0.0'}],[{c:'Q0.0'}]]},{c:'/I0.2'},{slot:0}],o:{coil:'Q0.0'}},{s:[{par:[[{c:'I0.1'}],[{c:'Q0.1'}]]},{c:'/I0.2'},{slot:1}],o:{coil:'Q0.1'}}],ans:['/Q0.1','/Q0.0'],
+ test:[{set:{'I0.0':1},e:{'Q0.0':1,'Q0.1':0},m:'Nhấn FWD'},{set:{'I0.0':0}},{set:{'I0.1':1},e:{'Q0.0':1,'Q0.1':0},m:'Nhấn REV khi đang chạy thuận, KM nghịch không được đóng'},{set:{'I0.1':0}},{set:{'I0.2':1},e:{'Q0.0':0,'Q0.1':0},m:'Nhấn STOP'},{set:{'I0.2':0}},{set:{'I0.1':1},e:{'Q0.1':1,'Q0.0':0},m:'Nhấn REV khi đang dừng'},{set:{'I0.1':0}},{set:{'I0.0':1},e:{'Q0.0':0,'Q0.1':1},m:'Nhấn FWD khi đang chạy nghịch, KM thuận không được đóng'}]},
+{t:'Đèn sáng trễ 3 giây (TON)',d:'Nhấn START (I0.0): bit nhớ M0.0 tự giữ và timer T0 bắt đầu đếm; đủ 3 giây đèn H1 (Q0.0) sáng. Nhấn STOP (I0.1) tắt hết.',
+ io:[['I0.0','START','btn'],['I0.1','STOP','btn'],['Q0.0','Đèn H1','out']],opts:['I0.0','M0.0','T0'],
+ rungs:[{s:[{par:[[{c:'I0.0'}],[{c:'M0.0'}]]},{c:'/I0.1'}],o:{coil:'M0.0'}},{s:[{slot:0}],o:{ton:'T0',pt:3000}},{s:[{slot:1}],o:{coil:'Q0.0'}}],ans:['M0.0','T0'],
+ test:[{set:{'I0.0':1},e:{'Q0.0':0},m:'Nhấn START, đèn chưa được sáng ngay'},{set:{'I0.0':0},w:1500,e:{'Q0.0':0},m:'Sau khoảng 1,5 s đèn vẫn chưa sáng'},{w:1600,e:{'Q0.0':1},m:'Sau 3 s đèn phải sáng'},{set:{'I0.1':1},e:{'Q0.0':0},m:'Nhấn STOP'},{set:{'I0.1':0},w:3500,e:{'Q0.0':0},m:'Sau khi STOP đèn không được tự sáng lại'}]},
+{t:'Khởi động sao, tam giác',d:'Nhấn START: K1 nguồn (Q0.0) và K2 sao (Q0.1) đóng, timer T0 đếm 3 giây; hết giờ thì K2 mở, K3 tam giác (Q0.2) đóng. K2 và K3 không bao giờ cùng đóng. STOP (I0.1) dừng tất cả.',
+ io:[['I0.0','START','btn'],['I0.1','STOP','btn'],['Q0.0','K1 nguồn','out'],['Q0.1','K2 sao','out'],['Q0.2','K3 tam giác','out']],opts:['T0','Q0.1','Q0.2'],
+ rungs:[{s:[{par:[[{c:'I0.0'}],[{c:'Q0.0'}]]},{c:'/I0.1'}],o:{coil:'Q0.0'}},{s:[{c:'Q0.0'}],o:{ton:'T0',pt:3000}},{s:[{c:'Q0.0'},{slot:0},{slot:1}],o:{coil:'Q0.1'}},{s:[{c:'Q0.0'},{slot:2},{c:'/Q0.1'}],o:{coil:'Q0.2'}}],ans:['/T0','/Q0.2','T0'],
+ test:[{set:{'I0.0':1},e:{'Q0.0':1,'Q0.1':1,'Q0.2':0},m:'Nhấn START, K1 và K2 (sao) phải đóng'},{set:{'I0.0':0},w:1500,e:{'Q0.0':1,'Q0.1':1,'Q0.2':0},m:'Sau 1,5 s vẫn phải chạy sao'},{w:1600,e:{'Q0.0':1,'Q0.1':0,'Q0.2':1},m:'Sau 3 s phải chuyển sang tam giác'},{set:{'I0.1':1},e:{'Q0.0':0,'Q0.1':0,'Q0.2':0},m:'Nhấn STOP'}]},
+{t:'Đếm sản phẩm (CTU)',d:'Mỗi sản phẩm đi qua cảm biến (I0.0) bộ đếm C0 tăng 1; đủ 5 sản phẩm thì đèn đủ thùng (Q0.0) sáng. Nhấn RESET (I0.1) để đếm lại.',
+ io:[['I0.0','Cảm biến SP','btn'],['I0.1','RESET','btn'],['Q0.0','Đèn đủ thùng','out']],opts:['I0.0','I0.1','C0'],
+ rungs:[{s:[{slot:0}],o:{ctu:'C0',pv:5}},{s:[{slot:1}],o:{rst:'C0'}},{s:[{slot:2}],o:{coil:'Q0.0'}}],ans:['I0.0','I0.1','C0'],
+ test:[...pulses(4),{e:{'Q0.0':0},m:'Sau 4 sản phẩm đèn chưa được sáng'},...pulses(1),{e:{'Q0.0':1},m:'Đủ 5 sản phẩm đèn phải sáng'},{set:{'I0.1':1},e:{'Q0.0':0},m:'Nhấn RESET'},{set:{'I0.1':0},e:{'Q0.0':0},m:'Nhả RESET, đèn vẫn tắt'}]}
+];
+const PNAME={'M0.0':'bit nhớ chạy','T0':'timer','C0':'bộ đếm'};
+const L0='M0 20H38M62 20H100M38 6V34M62 6V34';
+const SVG=(d,extra='')=>`<svg viewBox="0 0 100 40" aria-hidden="true"><path d="${d}" stroke="currentColor" stroke-width="2" fill="none"/>${extra}</svg>`;
+const TXT=t=>`<text x="50" y="25" text-anchor="middle" font-size="13" font-weight="700" fill="currentColor">${t}</text>`;
+const SYM={no:SVG(L0),nc:SVG(L0+'M33 34L67 6'),coil:SVG('M0 20H34M66 20H100M42 5Q32 20 42 35M58 5Q68 20 58 35'),rst:SVG('M0 20H34M66 20H100M42 5Q32 20 42 35M58 5Q68 20 58 35',TXT('R')),
+ empty:`<svg viewBox="0 0 100 40" aria-hidden="true"><path d="M0 20H30M70 20H100" stroke="currentColor" stroke-width="2"/><rect x="30" y="6" width="40" height="28" rx="4" fill="none" stroke-width="2" stroke-dasharray="4 3" style="stroke:var(--plc)"/>${TXT('?')}</svg>`};
+const BOX=t=>SVG('M0 20H22M78 20H100',`<rect x="22" y="3" width="56" height="34" rx="3" fill="none" stroke="currentColor" stroke-width="2"/>${TXT(t)}`);
+function plcLab(el){
+  st.plcCh=st.plcCh||{};
+  let ex=Math.min(st.plcEx||0,PEX.length-1),ch=(st.plcCh[ex]||[]).slice(),hint=false,msg=null;
+  const X=()=>PEX[ex];
+  const nm=t=>{const f=X().io.find(r=>r[0]===t);return f?f[1]:(PNAME[t]||'')};
+  const isNC=c=>!!c&&c[0]==='/',tg=c=>c?c.replace('/',''):'';
+  const sym=c=>!c?SYM.empty:isNC(c)?SYM.nc:SYM.no;
+  const res=l=>l.map(e=>e.par?{par:e.par.map(res)}:e.slot!=null?{c:ch[e.slot]||''}:e);
+  const prog=()=>X().rungs.map(r=>({s:res(r.s),o:r.o}));
+  const newS=()=>({v:{},t:{},c:{},rr:[]});
+  const get=(S,t)=>{if(!t)return false;if(t[0]==='T')return!!(S.t[t]&&S.t[t].dn);if(t[0]==='C')return!!(S.c[t]&&S.c[t].dn);return!!S.v[t]};
+  const closed=(S,c)=>c?(isNC(c)?!get(S,tg(c)):get(S,tg(c))):false;
+  const evS=(S,l)=>l.every(e=>e.par?e.par.some(b=>evS(S,b)):closed(S,e.c));
+  const scan=(P,S,dt)=>P.forEach((r,i)=>{const x=evS(S,r.s),o=r.o;S.rr[i]=x;
+    if(o.coil)S.v[o.coil]=x;
+    else if(o.ton){const T=S.t[o.ton]||(S.t[o.ton]={acc:0,dn:false});if(x){T.acc=Math.min(o.pt,T.acc+dt);T.dn=T.acc>=o.pt}else{T.acc=0;T.dn=false}}
+    else if(o.ctu){const C=S.c[o.ctu]||(S.c[o.ctu]={cv:0,dn:false,p:false});if(x&&!C.p)C.cv++;C.p=x;C.dn=C.cv>=o.pv}
+    else if(o.rst){const C=S.c[o.rst]||(S.c[o.rst]={cv:0,dn:false,p:false});if(x){C.cv=0;C.dn=false}}});
+  const runTest=()=>{const P=prog(),T=newS();for(const s of X().test){if(s.set)Object.assign(T.v,s.set);const n=Math.max(2,Math.round((s.w||100)/50));for(let i=0;i<n;i++)scan(P,T,50);
+    if(s.e)for(const k in s.e)if(get(T,k)!==!!s.e[k])return{ok:false,m:`${s.m}: ${k} (${nm(k)}) phải ${s.e[k]?'BẬT':'TẮT'}.`}}return{ok:true}};
+  let S=newS(),P=prog();
+  const elH=e=>{if(e.par)return`<div class="par">${e.par.map(b=>`<div class="br">${b.map(elH).join('')}</div>`).join('')}</div>`;
+    if(e.slot!=null){const v=ch[e.slot]||'',L='ABCDEF'[e.slot],op=X().opts.flatMap(t=>[t,'/'+t]);
+      return`<div class="el slot" data-c="${v}">${sym(v)}<select data-s="${e.slot}" aria-label="Ô ${L}"><option value="">Ô ${L}: chọn</option>${op.map(o=>`<option value="${o}" ${o===v?'selected':''}>${isNC(o)?'NC':'NO'} ${tg(o)} ${nm(tg(o))}</option>`).join('')}</select></div>`}
+    return`<div class="el" data-c="${e.c}">${sym(e.c)}<span class="lbl"><b>${tg(e.c)}</b>${nm(tg(e.c))}</span></div>`};
+  const coH=(o,i)=>{let s,l;if(o.coil){s=SYM.coil;l=`<b>${o.coil}</b>${nm(o.coil)}`}else if(o.ton){s=BOX('TON');l=`<b>${o.ton}</b>PT ${fmt(o.pt/1000)} s`}else if(o.ctu){s=BOX('CTU');l=`<b>${o.ctu}</b>PV ${o.pv}`}else{s=SYM.rst;l=`<b>RST</b>${o.rst}`}return`<div class="el coil" data-o="${i}">${s}<span class="lbl">${l}</span></div>`};
+  const draw=()=>{const x=X();
+    const ins=x.io.filter(r=>r[2]!=='out').map(r=>`<button class="pbtn ${r[2]==='sw'?'sw':/STOP|RESET/.test(r[1])?'red':/START|FWD|REV/.test(r[1])?'green':''}" data-i="${r[0]}" ${r[2]==='sw'?`aria-pressed="${!!S.v[r[0]]}"`:''}><span class="cap"></span><b>${r[1]}</b><small>${r[0]} · ${r[2]==='sw'?'công tắc':'nhấn giữ'}</small></button>`).join('');
+    const mem=x.rungs.filter(r=>r.o.coil&&r.o.coil[0]==='M').map(r=>`<div class="lamp" data-q="${r.o.coil}"><span class="bulb"></span><b>${nm(r.o.coil)}</b><small>${r.o.coil}</small></div>`).join('');
+    const outs=x.io.filter(r=>r[2]==='out').map(r=>`<div class="lamp" data-q="${r[0]}"><span class="bulb"></span><b>${r[1]}</b><small>${r[0]}</small></div>`).join('')+mem
+      +x.rungs.filter(r=>r.o.ton).map(r=>`<div class="meter" data-tm="${r.o.ton}"><b>${r.o.ton}</b> <span></span><div class="bar"><i style="width:0"></i></div></div>`).join('')
+      +x.rungs.filter(r=>r.o.ctu).map(r=>`<div class="meter" data-ct="${r.o.ctu}"><b>${r.o.ctu}</b> đếm <span></span></div>`).join('');
+    el.innerHTML=`<div class="exl">${PEX.map((p,i)=>`<button class="chip ${i===ex?'on':''}" data-x="${i}">${st.ex['plc'+i]?'<span class="ck">✓</span>':''}Bài ${i+1}</button>`).join('')}</div>
+    <div class="plc"><div class="pdesc"><h3>${ex+1}. ${x.t}</h3><p>${x.d}</p><p class="mut">Chọn tiếp điểm cho các ô trống. Chương trình chạy ngay: nhấn các nút ở bảng ngõ vào để thử, rồi bấm Kiểm tra để chấm tự động.</p>
+    <div class="row"><button class="btn pri" id="pchk">Kiểm tra</button><button class="btn" id="phint">${hint?'Ẩn đáp án':'Xem đáp án'}</button><button class="btn" id="prst">Reset PLC</button></div>
+    ${hint?`<div class="hint">${x.ans.map((a,i)=>`${'ABCDEF'[i]} = ${isNC(a)?'NC':'NO'} ${tg(a)} ${nm(tg(a))}`).join('<br>')}</div>`:''}
+    <div class="exst ${msg&&msg.ok?'ok':''}" id="pst" aria-live="polite">${msg?(msg.ok?'Đạt: chương trình chạy đúng mọi bước kiểm tra.':'Chưa đạt. '+msg.m):'Chưa kiểm tra.'}</div></div>
+    <div><div class="ladder">${x.rungs.map((r,i)=>`<div class="rung"><span class="rn">${i+1}</span><span class="rl"></span><div class="rs">${r.s.map(elH).join('')}</div><span class="wire"></span>${coH(r.o,i)}<span class="rr"></span></div>`).join('')}</div>
+    <div class="plcio"><div><h4>Ngõ vào</h4><div class="row">${ins}</div></div><div><h4>Ngõ ra và bộ nhớ</h4><div class="row">${outs}</div></div></div></div></div>`;
+    $$('[data-x]',el).forEach(b=>b.addEventListener('click',()=>{ex=+b.dataset.x;st.plcEx=ex;save();ch=(st.plcCh[ex]||[]).slice();S=newS();P=prog();hint=false;msg=null;draw()}));
+    $$('select[data-s]',el).forEach(s=>s.addEventListener('change',()=>{ch[+s.dataset.s]=s.value;st.plcCh[ex]=ch.slice();save();P=prog();msg=null;draw()}));
+    $('#pchk',el).addEventListener('click',()=>{msg=runTest();if(msg.ok&&!st.ex['plc'+ex]){st.ex['plc'+ex]=1;save()}draw()});
+    $('#phint',el).addEventListener('click',()=>{hint=!hint;draw()});
+    $('#prst',el).addEventListener('click',()=>{S=newS();draw()});
+    $$('.pbtn',el).forEach(b=>{const t=b.dataset.i;
+      if(b.classList.contains('sw')){b.addEventListener('click',()=>{S.v[t]=!S.v[t];b.setAttribute('aria-pressed',String(!!S.v[t]))});return}
+      const on=e=>{e.preventDefault();S.v[t]=true;try{b.setPointerCapture(e.pointerId)}catch(_){}},off=()=>{S.v[t]=false};
+      b.addEventListener('pointerdown',on);b.addEventListener('pointerup',off);b.addEventListener('pointercancel',off);b.addEventListener('lostpointercapture',off);
+      b.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();S.v[t]=true}});
+      b.addEventListener('keyup',e=>{if(e.key===' '||e.key==='Enter')S.v[t]=false});
+      b.addEventListener('contextmenu',e=>e.preventDefault())});
+    paint();
+  };
+  const paint=()=>{const x=X();
+    $$('.el[data-c]',el).forEach(d=>d.classList.toggle('on',closed(S,d.dataset.c)));
+    $$('.el[data-o]',el).forEach(d=>d.classList.toggle('on',!!S.rr[+d.dataset.o]));
+    $$('.lamp',el).forEach(d=>d.classList.toggle('on',get(S,d.dataset.q)));
+    $$('.pbtn',el).forEach(b=>b.classList.toggle('on',!!S.v[b.dataset.i]));
+    $$('[data-tm]',el).forEach(d=>{const T=S.t[d.dataset.tm]||{acc:0},o=x.rungs.find(r=>r.o.ton===d.dataset.tm).o;$('span',d).textContent=`${fmt(T.acc/1000,1)} / ${fmt(o.pt/1000)} s`;$('i',d).style.width=(T.acc/o.pt*100)+'%'});
+    $$('[data-ct]',el).forEach(d=>{const C=S.c[d.dataset.ct]||{cv:0},o=x.rungs.find(r=>r.o.ctu===d.dataset.ct).o;$('span',d).textContent=`${C.cv} / ${o.pv}`});
+  };
+  draw();
+  const tm=setInterval(()=>{scan(P,S,50);paint()},50);cleanup.push(()=>clearInterval(tm));
 }
 
 /* ---------- Phòng vẽ AutoCAD mô phỏng ---------- */
@@ -669,9 +868,71 @@ function cadLab(el){
   exList();exCard();check();
 }
 
+/* ---------- Dự án thực hành ---------- */
+const PRJ=[
+{id:'p-cad',s:'Bản vẽ điện xưởng',t:'Bộ bản vẽ điện xưởng sản xuất',c:'var(--cad)',mon:'AutoCAD + M&E',sw:'AutoCAD',time:'2–3 tuần',
+ de:`<p>Xưởng cơ khí một tầng 36 × 24 m, cao 8 m, mái tôn kèo thép, lưới cột 6 × 12 m. Góc xưởng có văn phòng 6 × 8 m, trần thạch cao cao 3 m. Nguồn lấy từ trạm biến áp riêng ngoài xưởng, cách tủ tổng MSB 40 m.</p><ul><li>10 máy công cụ 7,5 kW, 3 pha 400 V, đặt thành 2 dãy.</li><li>2 máy nén khí 22 kW trong phòng máy nén ở góc đối diện văn phòng.</li><li>Chiếu sáng xưởng 300 lx bằng đèn LED high bay 150 W; văn phòng 500 lx bằng đèn panel 600 × 600.</li><li>Ổ cắm 1 pha dọc tường xưởng mỗi 12 m; văn phòng 6 ổ đôi và 2 máy lạnh 2,6 kW (công suất điện).</li></ul><p class="mut">Đề bài mẫu; có thể đổi số liệu theo công trình bạn tự chọn. Dự án 2 và 3 dùng lại xưởng này.</p>`,
+ nop:['Mặt bằng chiếu sáng có ký hiệu, số mạch, công tắc','Mặt bằng ổ cắm, động lực, tuyến máng cáp và vị trí tủ','Sơ đồ nguyên lý 1 sợi của MSB và các tủ DB','Bảng chú thích ký hiệu và ghi chú chung','Khung tên, xuất PDF khổ A3 hoặc A1'],
+ buoc:['Vẽ lại mặt bằng kiến trúc đơn giản (hoặc gắn làm xref) trên layer nền màu nhạt.','Lập bộ layer E-LIGHT, E-POWER, E-TRAY, E-TEXT, E-SYMB và block ký hiệu có thuộc tính.','Bố trí đèn theo kết quả tính ở dự án 2, chia mạch hợp lý theo dòng định mức CB.','Bố trí ổ cắm, đầu cấp máy; vẽ tuyến máng cáp chính dọc dãy cột.','Vẽ sơ đồ 1 sợi: MSB, DB xưởng, DB văn phòng, DB máy nén; ghi CB, cáp, công suất từng nhánh.','Dàn layout, ghi kích thước, tag, xuất PDF.'],
+ ck:['Mọi đối tượng đúng layer, màu và nét để ByLayer','Ký hiệu là block, bảng chú thích khớp với bản vẽ','Mỗi đèn, ổ cắm, máy đều có số mạch và tên tủ','Sơ đồ 1 sợi ghi đủ định mức CB, số cực, Icu, loại và tiết diện cáp, công suất','Số liệu trên bản vẽ khớp với bảng tính của dự án 2','Chữ và kích thước in ra cao từ 2,5 mm','Khung tên đủ tên công trình, tên bản vẽ, số hiệu, tỉ lệ, ngày, người vẽ','Bản PDF in đen trắng vẫn đọc rõ'],
+ tip:'Xuất ảnh từng bản vẽ độ phân giải cao, kèm vài dòng về quyết định của bạn: cách chia mạch, chọn tuyến máng cáp, vị trí tủ.'},
+{id:'p-calc',s:'Hồ sơ tính toán',t:'Hồ sơ tính toán điện cho xưởng',c:'var(--me)',mon:'M&E',sw:'Excel hoặc Sheets; DIALux cho chiếu sáng (tùy chọn)',time:'1–2 tuần',
+ de:`<p>Dùng số liệu xưởng ở dự án 1. Giả định: hệ số đồng thời toàn xưởng 0,8; cosφ trung bình 0,85; hiệu suất động cơ 0,88; cáp đồng cách điện XLPE đi trên máng cáp; nhiệt độ môi trường 35 °C.</p>`,
+ nop:['Bảng phụ tải từng tủ và toàn xưởng: P đặt, P tính toán, S, I','Chọn máy biến áp hoặc công suất cấp nguồn, có dự phòng phát triển','Bảng chọn CB và cáp từng nhánh, ghi rõ hệ số hiệu chỉnh','Kiểm tra sụt áp từ trạm tới tải xa nhất','Tính số bộ đèn xưởng và văn phòng','Tính tụ bù để đạt cosφ 0,95'],
+ buoc:['Lập bảng tải: tên, số lượng, P, cosφ, η, hệ số sử dụng.','Tính dòng từng tải, cộng theo tủ, áp hệ số đồng thời.','Chọn máy biến áp theo S tính toán cộng dự phòng khoảng 20–30%.','Chọn CB theo I_B ≤ I_n; chọn cáp theo I_n ≤ I_Z bằng bảng tra của nhà sản xuất hoặc IEC 60364-5-52.','Tính sụt áp các tuyến dài, tăng tiết diện nếu vượt giới hạn.','Tính số đèn (phương pháp quang thông hoặc DIALux) và dung lượng tụ bù.','Viết thuyết minh ngắn: giả định, tiêu chuẩn áp dụng, kết quả.'],
+ ck:['Công thức trong bảng tự cập nhật khi đổi số liệu','Ghi rõ nguồn bảng tra khả năng mang dòng và hệ số hiệu chỉnh','I_B ≤ I_n ≤ I_Z đúng cho mọi nhánh','Sụt áp động lực ≤ 5% (hoặc giới hạn bạn chọn, có ghi nguồn)','Dây PE chọn đúng theo tiết diện dây pha','Kết quả khớp với số liệu trên bản vẽ dự án 1','Thuyết minh có danh mục tiêu chuẩn áp dụng'],
+ ref:`<ul><li>Công suất đặt ≈ 132 kW: máy công cụ 75 kW, máy nén 44 kW, chiếu sáng, ổ cắm văn phòng và máy lạnh ≈ 13 kW (chưa tính ổ cắm xưởng).</li><li>P tính toán ≈ 0,8 × 132 ≈ 106 kW; S ≈ 106 / 0,85 ≈ 125 kVA; cộng dự phòng 25% ≈ 156 kVA, chọn máy biến áp 160 kVA.</li><li>Dòng tổng phía 400 V ≈ 180 A, MCCB tổng cỡ 200–250 A.</li><li>Một máy 7,5 kW: I ≈ 7 500 / (1,732 × 400 × 0,85 × 0,88) ≈ 14,5 A.</li><li>Đèn xưởng (Φ ≈ 20 000 lm, UF 0,6, MF 0,8): N ≈ 300 × 864 / 9 600 ≈ 27, bố trí 30 bộ (6 × 5).</li></ul><p class="mut">Số tham khảo theo giả định đơn giản của đề, chỉ để tự đối chiếu cách làm.</p>`,
+ tip:'Đưa vào hồ sơ một trang tóm tắt: sơ đồ khối nguồn, bảng kết quả chính, và một ví dụ tính chọn cáp đầy đủ từng bước.'},
+{id:'p-rvt',s:'Mô hình Revit MEP',t:'Mô hình Revit MEP điện cho xưởng',c:'var(--rvt)',mon:'Revit',sw:'Revit; Navisworks (tùy chọn)',time:'2–3 tuần',
+ de:`<p>Dựng mô hình kiến trúc đơn giản của xưởng ở dự án 1 (tường, cột, kèo, mái, văn phòng), rồi làm mô hình điện trong file riêng link với kiến trúc. Thiết bị, mạch, tủ lấy theo bản vẽ và bảng tính của dự án 1 và 2.</p>`,
+ nop:['File kiến trúc và file điện riêng, link Origin to Origin','Đèn, ổ cắm, tủ điện đặt đúng cao độ, có mạch và Panel Schedule','Máng cáp chính có kích thước và cao độ đặt','Báo cáo Interference Check giữa máng cáp và kết cấu','Sheet mặt bằng chiếu sáng, ổ cắm, 3D và schedule, xuất PDF'],
+ buoc:['Dựng Level, Grid, tường, cột, kèo, mái đơn giản; lưu file kiến trúc.','Tạo file điện từ template Electrical, link kiến trúc, Copy/Monitor Level và Grid.','Thiết lập Distribution System, đặt tủ MSB và các DB.','Đặt đèn, ổ cắm, tạo mạch, gán tủ; kiểm tra số mạch khớp dự án 1.','Vẽ máng cáp theo tuyến đã thiết kế, chọn Offset tránh kèo.','Chạy Interference Check và xử lý va chạm.','Tạo view template, tag, schedule, sheet và xuất PDF.'],
+ ck:['Level, Grid trong file điện là Copy/Monitor, không vẽ lại','Không còn thiết bị chưa gán tủ','Panel Schedule khớp bảng tính dự án 2','Máng cáp không còn va chạm với kết cấu','Mặt bằng hiển thị máng cáp 2 nét (Detail Level Medium hoặc Fine)','Schedule đèn theo phòng tự cập nhật','Số hiệu sheet thống nhất với bộ bản vẽ AutoCAD'],
+ tip:'Xuất vài ảnh 3D của khu trần xưởng có kèo, máng cáp và đèn: đây thường là hình gây ấn tượng nhất trong hồ sơ.'},
+{id:'p-plc',s:'Trạm bơm PLC + HMI',t:'Trạm bơm hai bơm luân phiên (PLC + HMI)',c:'var(--plc)',mon:'PLC',sw:'TIA Portal (STEP 7, WinCC Basic) và PLCSIM; hoặc phần mềm của hãng bạn chọn',time:'2–3 tuần',
+ de:`<p>Bể nước có cảm biến mức thấp và mức cao. Nước xuống mức thấp thì chạy một bơm, lên mức cao thì dừng. Hai bơm chạy luân phiên theo mỗi lần khởi động; bơm đang chạy bị lỗi thì tự chuyển sang bơm còn lại. Có chế độ Auto và Manual; dừng khẩn cấp đấu cứng.</p>`,
+ k:[['I0.0','Công tắc Auto (1) / Manual (0)'],['I0.1 / I0.2','START / STOP chế độ Manual'],['I0.3','Trạng thái E-stop từ relay an toàn'],['I0.4 / I0.5','Mức thấp LSL / mức cao LSH'],['I0.6 / I0.7','Rơ le nhiệt bơm 1 / bơm 2'],['I1.0 / I1.1','Phản hồi chạy KM1 / KM2'],['Q0.0 / Q0.1','Contactor bơm 1 / bơm 2'],['Q0.2 / Q0.3','Đèn báo lỗi / còi']],
+ nop:['Danh sách I/O và sơ đồ đấu nối tủ điều khiển','Chương trình PLC có cấu trúc, một FB điều khiển bơm dùng lại cho 2 bơm','Màn hình HMI: tổng quan bể và bơm, chế độ, báo lỗi, giờ chạy','Bảng kịch bản kiểm thử và kết quả chạy trên PLCSIM','Tài liệu vận hành ngắn cho người dùng'],
+ buoc:['Viết mô tả chức năng và danh sách I/O.','Vẽ sơ đồ đấu nối: nguồn, PLC, contactor, rơ le nhiệt, mạch E-stop đấu cứng.','Viết FB Bơm: lệnh chạy, phản hồi, lỗi quá tải, lỗi không phản hồi sau 3 s, đếm giờ chạy.','Viết logic mức nước, luân phiên, chuyển bơm khi lỗi, chế độ Manual.','Làm HMI: màn hình tổng quan, danh sách alarm, nút reset lỗi.','Mô phỏng bằng PLCSIM, chạy từng kịch bản kiểm thử, ghi kết quả.','Viết tài liệu vận hành và xử lý lỗi.'],
+ ck:['E-stop cắt nguồn contactor bằng mạch cứng, không chỉ bằng chương trình','Ở chế độ Auto hai bơm không chạy cùng lúc','Luân phiên đúng: lần khởi động sau dùng bơm còn lại','Bơm quá tải hoặc không phản hồi thì báo lỗi và chuyển bơm','Mất cả hai bơm thì báo lỗi tổng và còi kêu','Lỗi chỉ xóa được khi đã hết nguyên nhân và bấm reset','Tag, khối, biến đặt tên rõ ràng, có chú thích','Mỗi kịch bản kiểm thử có kết quả Đạt hoặc Không đạt'],
+ tip:'Quay video 1–2 phút màn hình PLCSIM và HMI khi chạy các kịch bản lỗi; video thuyết phục hơn nhiều trang mô tả.'},
+{id:'p-port',s:'Hồ sơ năng lực',t:'Đóng gói hồ sơ năng lực',c:'var(--cy2)',mon:'Tổng hợp',sw:'PDF (Word, Canva hoặc Docs); Google Drive hoặc GitHub để chia sẻ',time:'3–5 ngày',
+ de:`<p>Gom 4 dự án thành một hồ sơ 10–15 trang gửi kèm CV khi ứng tuyển vị trí kỹ sư thiết kế M&amp;E, BIM MEP, kỹ sư điện hoặc tự động hóa.</p>`,
+ nop:['File PDF hồ sơ năng lực 10–15 trang','Thư mục chia sẻ chứa bản vẽ PDF, ảnh mô hình, video PLC','CV một trang có mục Dự án và Kỹ năng phần mềm'],
+ buoc:['Trang bìa và giới thiệu ngắn: kinh nghiệm hiện tại, mảng muốn làm.','Mỗi dự án 2–3 trang: đề bài, phần bạn làm, hình ảnh chính, số liệu nổi bật, điều học được.','Trang kỹ năng: phần mềm, mức độ thành thạo, tiêu chuẩn đã áp dụng.','Tải tài liệu lên thư mục chia sẻ, đặt link vào PDF và CV.','Nhờ người trong nghề đọc góp ý, sửa một lượt.'],
+ ck:['Không dùng bản vẽ, chương trình hay dữ liệu của công ty hiện tại; chỉ dùng dự án tự làm','Mỗi hình có chú thích ngắn','Số liệu trong hồ sơ khớp với bản vẽ và bảng tính','Link chia sẻ mở được khi đã đăng xuất tài khoản','File PDF đủ nhẹ để gửi email (khoảng dưới 20 MB)','CV ghi đúng tên và phiên bản phần mềm đã dùng'],
+ tip:'Đặt dự án mạnh nhất lên đầu; người tuyển dụng thường chỉ xem kỹ 2–3 trang đầu.'}
+];
+const pjp=p=>{const a=(st.proj||{})[p.id]||[];return Math.round(a.filter(Boolean).length/p.ck.length*100)};
+function projects(m){
+  st.proj=st.proj||{};let sel=Math.min(st.projSel||0,PRJ.length-1);
+  const tot=()=>Math.round(PRJ.reduce((s,p)=>s+pjp(p),0)/PRJ.length);
+  m.innerHTML=`<section class="band thead" style="--tc:var(--cy2)"><div class="wrap"><div class="th"><div><h1>Dự án thực hành</h1><p>Năm dự án nối tiếp nhau trên cùng một xưởng mẫu, làm trên phần mềm thật. Làm xong cả năm, bạn có một bộ hồ sơ năng lực để ứng tuyển.</p></div><div class="prog"><b id="jt">${tot()}%</b><span>tự kiểm tra đã đạt</span><div class="bar" style="margin-top:8px"><i id="jb" style="width:${tot()}%"></i></div></div></div></div></section>
+  <section class="band"><div class="wrap"><div class="exl" id="pj"></div><div id="pd"></div></div></section>`;
+  const draw=()=>{const p=PRJ[sel],a=st.proj[p.id]||[];
+    $('#pj',m).innerHTML=PRJ.map((x,i)=>`<button class="chip ${i===sel?'on':''}" data-p="${i}">${pjp(x)===100?'<span class="ck">✓</span>':''}${i+1}. ${x.s}</button>`).join('');
+    $$('[data-p]',m).forEach(b=>b.addEventListener('click',()=>{sel=+b.dataset.p;st.projSel=sel;save();draw();$('#pj',m).scrollIntoView({block:'start'})}));
+    $('#pd',m).innerHTML=`<div class="prj" style="--tc:${p.c}"><div>
+      <h2>${sel+1}. ${p.t}</h2><div class="meta"><span><b>Môn:</b> ${p.mon}</span><span><b>Phần mềm:</b> ${p.sw}</span><span><b>Thời gian:</b> ${p.time}</span></div>
+      <h3>Đề bài</h3>${p.de}${p.k?keysTable(p.k).replace('Lệnh / phím','Địa chỉ').replace('Ý nghĩa','Tín hiệu'):''}
+      <h3>Sản phẩm cần nộp</h3><ul>${p.nop.map(x=>`<li>${x}</li>`).join('')}</ul>
+      <h3>Các bước</h3><ol>${p.buoc.map(x=>`<li>${x}</li>`).join('')}</ol>
+      ${p.ref?`<details><summary>Kết quả tham khảo để tự đối chiếu</summary>${p.ref}</details>`:''}
+      <div class="do"><b>Đưa vào hồ sơ:</b> ${p.tip}</div></div>
+      <aside class="ckbox"><h3>Tự kiểm tra</h3><p class="mut" id="cp">${a.filter(Boolean).length}/${p.ck.length} mục · ${pjp(p)}%</p><div class="bar"><i id="cb" style="width:${pjp(p)}%"></i></div>
+      <div style="margin-top:8px">${p.ck.map((x,i)=>`<label class="ck ${a[i]?'done':''}"><input type="checkbox" data-k="${i}" ${a[i]?'checked':''}><span>${x}</span></label>`).join('')}</div>
+      <button class="btn" id="cr" style="margin-top:14px">Bỏ hết đánh dấu</button></aside></div>`;
+    $$('input[data-k]',m).forEach(c=>c.addEventListener('change',()=>{const arr=(st.proj[p.id]||[]).slice();arr[+c.dataset.k]=c.checked;st.proj[p.id]=arr;save();
+      c.closest('.ck').classList.toggle('done',c.checked);const n=arr.filter(Boolean).length;$('#cp',m).textContent=`${n}/${p.ck.length} mục · ${pjp(p)}%`;$('#cb',m).style.width=pjp(p)+'%';$('#jt',m).textContent=tot()+'%';$('#jb',m).style.width=tot()+'%';
+      if(pjp(p)===100||n===p.ck.length-1)$('#pj',m).querySelector(`[data-p="${sel}"]`).innerHTML=`${pjp(p)===100?'<span class="ck">✓</span>':''}${sel+1}. ${p.s}`}));
+    $('#cr',m).addEventListener('click',()=>{st.proj[p.id]=[];save();draw();$('#jt',m).textContent=tot()+'%';$('#jb',m).style.width=tot()+'%'});
+  };
+  draw();
+}
+
 /* ---------- Ôn tập ---------- */
 function review(m){
-  const DECKS=[['f','Công thức và khái niệm',FORM],['a','Phím tắt AutoCAD',CADK.map(r=>[r[0],r[1].replace('|',' / ')])],['r','Phím tắt Revit',RVTK.map(r=>[r[0],r[1].replace('|',' / ')])]];
+  const DECKS=[['f','Công thức và khái niệm',FORM],['a','Phím tắt AutoCAD',CADK.map(r=>[r[0],r[1].replace('|',' / ')])],['r','Phím tắt Revit',RVTK.map(r=>[r[0],r[1].replace('|',' / ')])],['p','PLC',PLCF]];
   m.innerHTML=`<section class="band thead" style="--tc:var(--cy2)"><div class="wrap"><div class="th"><div><h1>Ôn tập</h1><p>Thẻ ghi nhớ công thức và phím tắt, cộng bài kiểm tra tổng hợp 10 câu lấy ngẫu nhiên từ cả ba môn.</p></div><div class="prog"><b>${st.quiz.mix!=null?st.quiz.mix+'%':'–'}</b><span>điểm tổng hợp cao nhất</span></div></div></div></section>
   <section class="band" style="--tc:var(--cy2)"><div class="wrap rv"><div><h2>Thẻ ghi nhớ</h2><div class="exl" id="dk"></div><div id="fc"></div></div><div><h2>Kiểm tra tổng hợp</h2><div id="mq" style="margin-top:16px"></div></div></div></section>`;
   let d=0,cards,i,flip;
@@ -686,17 +947,17 @@ function review(m){
     $('#fn',m).addEventListener('click',()=>{if(i===cards.length-1)deal();else{i++;flip=false;draw()}});
   };
   deal();
-  quiz($('#mq',m),[...QZ.autocad,...QZ.revit,...QZ.me],'mix',10);
+  quiz($('#mq',m),[...QZ.autocad,...QZ.revit,...QZ.me,...QZ.plc],'mix',10);
 }
 
 /* ---------- Điều hướng ---------- */
-const ROUTES=['home','autocad','revit','me','on-tap'];
+const ROUTES=['home','autocad','revit','me','plc','du-an','on-tap'];
 function route(){
   let h=location.hash.slice(1);if(!ROUTES.includes(h))h='home';
   $$('.nav a').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+h));
   cleanup.forEach(f=>f());cleanup=[];
   const m=$('#app');m.refresh=null;
-  if(h==='home')home(m);else if(h==='on-tap')review(m);else track(m,h);
+  if(h==='home')home(m);else if(h==='on-tap')review(m);else if(h==='du-an')projects(m);else track(m,h);
   window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);
